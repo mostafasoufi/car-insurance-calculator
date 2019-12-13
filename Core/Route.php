@@ -16,7 +16,6 @@ class Route
      */
     public function register($path, $method)
     {
-
         $actions = explode('@', $method);
         $class = '\\CarInsuranceCalculator\\Controller\\' . $actions[0];
 
@@ -31,10 +30,23 @@ class Route
      */
     public function handle()
     {
-        if (isset($this->routes[$_GET['parameter']])) {
-            $route = $this->routes[$_GET['parameter']];
-
-            return call_user_func(array($route['class'], $route['method']));
+        if (empty($this->routes[$this->getParameter()])) {
+            http_response_code(404);
+            echo '<h1>404 - Not Found</h1>';
+            die();
         }
+
+        $route = $this->routes[$this->getParameter()];
+
+        return call_user_func(array($route['class'], $route['method']));
+    }
+
+    /**
+     * Get parameter.
+     * @return mixed
+     */
+    private function getParameter()
+    {
+        return $_GET['parameter'];
     }
 }
