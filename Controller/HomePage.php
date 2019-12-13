@@ -2,10 +2,12 @@
 
 namespace CarInsuranceCalculator\Controller;
 
+use CarInsuranceCalculator\Core\View;
+
 class HomePage
 {
     public function index()
     {
-        echo 'hello home page';
+        View::render('home.php');
     }
 }
