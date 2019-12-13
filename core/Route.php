@@ -17,7 +17,7 @@ class Route
     public function register($path, $method)
     {
         $actions = explode('@', $method);
-        $class = '\\CarInsuranceCalculator\\Controller\\' . $actions[0];
+        $class = '\\CarInsuranceCalculator\\controller\\' . $actions[0];
 
         $this->routes[ltrim($path, '/')] = [
             'class' => new $class(),

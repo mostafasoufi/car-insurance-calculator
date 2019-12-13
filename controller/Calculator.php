@@ -4,10 +4,12 @@ namespace CarInsuranceCalculator\Controller;
 
 use CarInsuranceCalculator\Core\View;
 
-class HomePage
+class Calculator
 {
     public function index()
     {
-        View::render('home.php');
+        View::render('calculate.php', [
+            'title' => 'Car Insurance Calculate form'
+        ]);
     }
 }
