@@ -24,6 +24,16 @@
             display: inline-block;
             padding-right: 12px;
         }
+
+        .page-header {
+            border-bottom: 1px solid #d8d8d8;
+            padding: 0 0 11px 0;
+            margin: 0 0 49px 0;
+        }
+
+        .page-header span {
+            vertical-align: bottom;
+        }
     </style>
 </head>
 <body>
@@ -37,7 +47,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="calculator">Calculate</a>
+                <a class="nav-link" href="form">Calculate</a>
             </li>
         </ul>
     </div>
