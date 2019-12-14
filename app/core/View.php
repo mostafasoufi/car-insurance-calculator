@@ -1,6 +1,6 @@
 <?php
 
-namespace CarInsuranceCalculator\Core;
+namespace InsuranceCalculator\App\Core;
 
 class View
 {
@@ -9,7 +9,7 @@ class View
      *
      * @var string
      */
-    private static $path = 'View';
+    private static $path = 'App/View';
 
     /**
      * Render a view

@@ -1,8 +1,8 @@
 <?php
 
-namespace CarInsuranceCalculator\Controller;
+namespace InsuranceCalculator\App\Controller;
 
-use CarInsuranceCalculator\Core\View;
+use InsuranceCalculator\App\Core\View;
 
 class HomePage
 {

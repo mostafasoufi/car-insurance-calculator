@@ -1,10 +1,10 @@
 <?php
 
-namespace CarInsuranceCalculator\Core;
+namespace InsuranceCalculator\App\Core;
 
 /**
  * Class Route
- * @package CarInsuranceCalculator\Core
+ * @package InsuranceCalculator\Core
  */
 class Route
 {
@@ -17,7 +17,7 @@ class Route
     public function register($path, $method)
     {
         $actions = explode('@', $method);
-        $class = '\\CarInsuranceCalculator\\controller\\' . $actions[0];
+        $class = '\\InsuranceCalculator\\app\controller\\' . $actions[0];
 
         $this->routes[ltrim($path, '/')] = [
             'class' => new $class(),

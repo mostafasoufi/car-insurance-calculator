@@ -1,9 +1,9 @@
 <?php
 
-namespace CarInsuranceCalculator\Controller;
+namespace InsuranceCalculator\App\Controller;
 
-use CarInsuranceCalculator\Core\Helper\Input;
-use CarInsuranceCalculator\Core\View;
+use InsuranceCalculator\App\Core\Helper\Input;
+use InsuranceCalculator\App\Core\View;
 
 class Car
 {
@@ -16,17 +16,17 @@ class Car
 
     public function calculate()
     {
+        $title = 'Car Insurance Result';
+
         try {
             $car = new Car(Input::post('car-value'), Input::post('tax-percentage'), Input::post('instalments'));
-            
+
             View::render('calculate.php', [
-                'title' => 'Car Insurance Result'
+                'title' => $title
             ]);
 
         } catch (Exception $e) {
-            View::render('error.php', [
-                'title' => 'Error'
-            ]);
+            View::render('error.php', ['title' => $title]);
         }
     }
 }

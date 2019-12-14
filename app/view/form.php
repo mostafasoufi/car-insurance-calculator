@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
-                <form method="post" action="car/calculate">
+                <form method="post" action="<?php echo APP_URL; ?>/car/calculate">
                     <div class="form-group row">
                         <label for="car-value" class="col-sm-6 col-form-label">Estimated value of the car</label>
                         <div class="col-sm-6">

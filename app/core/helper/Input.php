@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CarInsuranceCalculator\Core\Helper;
+namespace InsuranceCalculator\App\Core\Helper;
 
 
 class Input

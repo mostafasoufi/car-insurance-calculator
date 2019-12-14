@@ -1,6 +1,6 @@
 <?php
 
-use CarInsuranceCalculator\Core\Route;
+use InsuranceCalculator\App\Core\Route;
 
 $route = new Route();
 

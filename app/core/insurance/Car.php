@@ -1,6 +1,6 @@
 <?php
 
-namespace CarInsuranceCalculator\Core\Insurance;
+namespace InsuranceCalculator\App\Core\Insurance;
 
 class Car extends Insurance implements InsuranceInterface
 {
