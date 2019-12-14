@@ -4,6 +4,7 @@ namespace InsuranceCalculator\App\Controller;
 
 use InsuranceCalculator\App\Core\Helper\Input;
 use InsuranceCalculator\App\Core\View;
+use InsuranceCalculator\App\Core\Insurance\Car as Insurance;
 
 class Car
 {
@@ -17,16 +18,14 @@ class Car
     public function calculate()
     {
         $title = 'Car Insurance Result';
+        $car = new Insurance(Input::post('car-value'), Input::post('tax-percentage'), Input::post('instalments'));
 
-        try {
-            $car = new Car(Input::post('car-value'), Input::post('tax-percentage'), Input::post('instalments'));
-
-            View::render('calculate.php', [
-                'title' => $title
-            ]);
-
-        } catch (Exception $e) {
-            View::render('error.php', ['title' => $title]);
+        if ($car->hasError()) {
+            View::render('error.php', ['title' => $title, 'error' => $car->getError()]);
         }
+
+        View::render('calculate.php', [
+            'title' => $title
+        ]);
     }
 }

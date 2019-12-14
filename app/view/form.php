@@ -28,7 +28,7 @@
                         <label for="tax-percentage" class="col-sm-6 col-form-label">Tax percentage</label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <input type="number" name="tax-percentage" class="form-control" id="tax-percentage" placeholder="" min="0" required>
+                                <input type="number" name="tax-percentage" class="form-control" id="tax-percentage" placeholder="" min="0" max="100" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                 </div>

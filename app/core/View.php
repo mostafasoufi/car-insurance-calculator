@@ -36,5 +36,6 @@ class View
         unset($parameters);
 
         require $file;
+        exit;
     }
 }
