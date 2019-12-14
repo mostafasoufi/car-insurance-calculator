@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
-                <form method="post" action="calculate">
+                <form method="post" action="car/calculate">
                     <div class="form-group row">
                         <label for="car-value" class="col-sm-6 col-form-label">Estimated value of the car</label>
                         <div class="col-sm-6">
@@ -43,7 +43,7 @@
                     <div class="form-group row">
                         <label for="instalments" class="col-sm-6 col-form-label">Number of instalments</label>
                         <div class="col-sm-6">
-                            <input type="number" class="form-control" id="instalments" placeholder="" min="0" max="12" required>
+                            <input type="number" class="form-control" name="instalments" id="instalments" placeholder="" min="0" max="12" required>
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 Count of payments in which client wants to pay for the policy (1 – 12)
                             </small>

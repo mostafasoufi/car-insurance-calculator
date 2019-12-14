@@ -5,7 +5,7 @@ use CarInsuranceCalculator\Core\Route;
 $route = new Route();
 
 $route->register('/', 'HomePage@index');
-$route->register('/form', 'Form@index');
-$route->register('/calculate', 'Calculate@index');
+$route->register('/car', 'Car@index');
+$route->register('/car/calculate', 'Car@calculate');
 
 $route->handle();

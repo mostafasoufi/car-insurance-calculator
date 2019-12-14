@@ -1,6 +1,6 @@
 {
-    "name": "mostafa/car-insurance-calculator",
-    "description": "Car Insurance Calculator",
+    "name": "mostafa/insurance-calculator",
+    "description": "Insurance Calculator",
     "type": "library",
     "authors": [
         {
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CarInsuranceCalculator\\": ""
+            "InsuranceCalculator\\": ""
         }
     }
 }
