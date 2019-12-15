@@ -12,51 +12,46 @@
                     <tr>
                         <th></th>
                         <th>Policy</th>
-                        <th>1 Instalment</th>
-                        <th>2 Instalment</th>
-                        <th>3 Instalment</th>
+                        <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
+                            <th><?php echo $i; ?> Instalment</th>
+                        <?php endfor; ?>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr>
                         <td>Value</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>Base Premium ()</td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-right"><?php echo $car->getValue(); ?></td>
                         <td></td>
                         <td></td>
                     </tr>
 
                     <tr>
-                        <td>Commission ()</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Base Premium (<?php echo $car->getBase(); ?>%)</td>
+                        <td class="text-right"><?php echo $car->getBasePrice(); ?></td>
+                        <td class="text-right"><?php echo $instalment['base']; ?></td>
+                        <td class="text-right"><?php echo $instalment['base']; ?></td>
                     </tr>
 
                     <tr>
-                        <td>Tax ()</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Commission (<?php echo $car->getCommission(); ?>%)</td>
+                        <td class="text-right"><?php echo $car->getCommissionPrice(); ?></td>
+                        <td class="text-right"><?php echo $instalment['commission']; ?></td>
+                        <td class="text-right"><?php echo $instalment['commission']; ?></td>
+                    </tr>
+
+                    <tr>
+                        <td>Tax (<?php echo $car->getTax(); ?>%)</td>
+                        <td class="text-right"><?php echo $car->getTaxPrice(); ?></td>
+                        <td class="text-right"><?php echo $instalment['tax']; ?></td>
+                        <td class="text-right"><?php echo $instalment['tax']; ?></td>
                     </tr>
 
                     <tr class="active">
-                        <td class="active">Total Cost</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="active"><b>Total Cost</b></td>
+                        <td class="text-right"><b><?php echo $car->getTotalPrice(); ?></b></td>
+                        <td class="text-right"><?php echo $instalment['total']; ?></td>
+                        <td class="text-right"><?php echo $instalment['total']; ?></td>
                     </tr>
                     </tbody>
                 </table>

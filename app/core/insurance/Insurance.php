@@ -10,4 +10,9 @@ abstract class Insurance
     public function __construct()
     {
     }
+
+    public function calculatePercent($value, $percent)
+    {
+        return $value * $percent / 100;
+    }
 }

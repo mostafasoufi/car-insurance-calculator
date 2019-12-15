@@ -17,6 +17,8 @@ class Input
         if ($key) {
             return isset($value[$key]) ? $value[$key] : false;
         }
+
+        return $value;
     }
 
     /**
@@ -30,5 +32,7 @@ class Input
         if ($key) {
             return isset($value[$key]) ? $value[$key] : false;
         }
+
+        return $value;
     }
 }
