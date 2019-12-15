@@ -52,6 +52,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-10">
+                            <input type="hidden" id="user-time" name="user-time"/>
                             <button type="submit" class="btn btn-primary">Calculate</button>
                         </div>
                     </div>

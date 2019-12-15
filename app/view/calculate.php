@@ -13,7 +13,7 @@
                         <th></th>
                         <th>Policy</th>
                         <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
-                            <th><?php echo $i; ?> Instalment</th>
+                            <th><?php echo $i; ?> Intalment</th>
                         <?php endfor; ?>
                     </tr>
                     </thead>
@@ -22,36 +22,41 @@
                     <tr>
                         <td>Value</td>
                         <td class="text-right"><?php echo $car->getValue(); ?></td>
-                        <td></td>
-                        <td></td>
+                        <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
+                            <td></td>
+                        <?php endfor; ?>
                     </tr>
 
                     <tr>
                         <td>Base Premium (<?php echo $car->getBase(); ?>%)</td>
                         <td class="text-right"><?php echo $car->getBasePrice(); ?></td>
-                        <td class="text-right"><?php echo $instalment['base']; ?></td>
-                        <td class="text-right"><?php echo $instalment['base']; ?></td>
+                        <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
+                            <td class="text-right"><?php echo $instalment['base']; ?></td>
+                        <?php endfor; ?>
                     </tr>
 
                     <tr>
                         <td>Commission (<?php echo $car->getCommission(); ?>%)</td>
                         <td class="text-right"><?php echo $car->getCommissionPrice(); ?></td>
-                        <td class="text-right"><?php echo $instalment['commission']; ?></td>
-                        <td class="text-right"><?php echo $instalment['commission']; ?></td>
+                        <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
+                            <td class="text-right"><?php echo $instalment['commission']; ?></td>
+                        <?php endfor; ?>
                     </tr>
 
                     <tr>
                         <td>Tax (<?php echo $car->getTax(); ?>%)</td>
                         <td class="text-right"><?php echo $car->getTaxPrice(); ?></td>
-                        <td class="text-right"><?php echo $instalment['tax']; ?></td>
-                        <td class="text-right"><?php echo $instalment['tax']; ?></td>
+                        <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
+                            <td class="text-right"><?php echo $instalment['tax']; ?></td>
+                        <?php endfor; ?>
                     </tr>
 
                     <tr class="active">
                         <td class="active"><b>Total Cost</b></td>
                         <td class="text-right"><b><?php echo $car->getTotalPrice(); ?></b></td>
-                        <td class="text-right"><?php echo $instalment['total']; ?></td>
-                        <td class="text-right"><?php echo $instalment['total']; ?></td>
+                        <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
+                            <td class="text-right"><?php echo $instalment['total']; ?></td>
+                        <?php endfor; ?>
                     </tr>
                     </tbody>
                 </table>

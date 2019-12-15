@@ -2,7 +2,7 @@
 
 namespace InsuranceCalculator\App\Core\Insurance;
 
-use Exception;
+use DateTime;
 
 class Car extends Insurance implements InsuranceInterface
 {
@@ -12,27 +12,31 @@ class Car extends Insurance implements InsuranceInterface
     private $error;
     private $basePercent;
     private $commissionPercent;
+    private $userTime;
 
     /**
      * Insurance constructor.
      * @param $value
      * @param $tax
      * @param $instalment
+     * @param string $time
      */
-    public function __construct($value, $tax, $instalment)
+    public function __construct($value, $tax, $instalment, $time = false)
     {
         parent::__construct();
 
         $this->value = $value;
         $this->tax = $tax;
         $this->instalment = $instalment;
+        $this->userTime = $time ? $time : time();
         $this->basePercent = 11;
         $this->commissionPercent = 17;
 
         $this->validate();
+        $this->modifyBasePercent();
     }
 
-    public function validate()
+    private function validate()
     {
         if ($this->value <= 0) {
             $this->error = 'The value should be greater than 0';
@@ -44,6 +48,16 @@ class Car extends Insurance implements InsuranceInterface
 
         if ($this->instalment <= 0 or $this->instalment > 12) {
             $this->error = 'The Instalment should be greater than 0 and less than 12';
+        }
+    }
+
+    private function modifyBasePercent()
+    {
+        $date = new DateTime();
+        $date->setTimestamp($this->userTime);
+
+        if ($date->format('l') == 'Friday' and $date->format('H-m') == '15-20') {
+            $this->basePercent = 13;
         }
     }
 
@@ -95,10 +109,10 @@ class Car extends Insurance implements InsuranceInterface
     public function getInstalmentsPrice()
     {
         return [
-            'base' => $this->getBasePrice() / $this->instalment,
-            'commission' => $this->getCommissionPrice() / $this->instalment,
-            'tax' => $this->getTaxPrice() / $this->instalment,
-            'total' => $this->getTotalPrice() / $this->instalment,
+            'base' => round($this->getBasePrice() / $this->instalment),
+            'commission' => round($this->getCommissionPrice() / $this->instalment),
+            'tax' => round($this->getTaxPrice() / $this->instalment),
+            'total' => round($this->getTotalPrice() / $this->instalment),
         ];
     }
 

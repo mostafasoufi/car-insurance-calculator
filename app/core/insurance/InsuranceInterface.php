@@ -12,9 +12,4 @@ interface InsuranceInterface
      * @param $instalment
      */
     public function __construct($value, $tax, $instalment);
-
-    /**
-     * @return mixed
-     */
-    public function validate();
 }

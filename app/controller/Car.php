@@ -18,11 +18,12 @@ class Car
     public function calculate()
     {
         $title = 'Car Insurance Result';
-        $car = new Insurance\Car(Input::post('car-value'), Input::post('tax-percentage'), Input::post('instalments'));
+        $car = new Insurance\Car(Input::post('car-value'), Input::post('tax-percentage'), Input::post('instalments'), Input::post('user-time'));
+
         if ($car->hasError()) {
             View::render('error.php', ['title' => $title, 'error' => $car->getError()]);
         }
-
+        
         View::render('calculate.php', [
             'title' => $title,
             'car' => $car,

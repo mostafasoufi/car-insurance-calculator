@@ -34,9 +34,19 @@
         .page-header span {
             vertical-align: bottom;
         }
+
+        table tr th {
+            font-size: 11px;
+        }
     </style>
+
+    <script type="application/javascript">
+        function setUserTime() {
+            document.getElementById("user-time").value = Math.floor(Date.now() /1000);
+        }
+    </script>
 </head>
-<body>
+<body onload="setUserTime()">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="<?php echo APP_URL; ?>">Insurance Calculator</a>
