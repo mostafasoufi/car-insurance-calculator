@@ -1,0 +1,20 @@
+{
+    "name": "mostafa/insurance-calculator",
+    "description": "Insurance Calculator",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mostafa Soufi",
+            "email": "mostafa.soufi@hotmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require-dev": {
+        "phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "InsuranceCalculator\\": ""
+        }
+    }
+}
