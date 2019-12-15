@@ -8,6 +8,9 @@ use InsuranceCalculator\App\Core\Insurance;
 
 class Car
 {
+    /**
+     * Car controller.
+     */
     public function index()
     {
         View::render('form.php', [
@@ -15,6 +18,10 @@ class Car
         ]);
     }
 
+    /**
+     * Calculate controller.
+     * @throws \Exception
+     */
     public function calculate()
     {
         $title = 'Car Insurance Result';

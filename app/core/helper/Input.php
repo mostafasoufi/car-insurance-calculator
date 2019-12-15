@@ -1,8 +1,6 @@
 <?php
 
-
 namespace InsuranceCalculator\App\Core\Helper;
-
 
 class Input
 {

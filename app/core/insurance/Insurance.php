@@ -11,6 +11,11 @@ abstract class Insurance
     {
     }
 
+    /**
+     * @param $value
+     * @param $percent
+     * @return float|int
+     */
     public function calculatePercent($value, $percent)
     {
         return $value * $percent / 100;
