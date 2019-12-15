@@ -21,7 +21,7 @@
                     <tbody>
                     <tr>
                         <td>Value</td>
-                        <td class="text-right"><?php echo $car->getValue(); ?></td>
+                        <td class="text-right"><?php echo number_format($car->getValue(), 2); ?></td>
                         <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
                             <td></td>
                         <?php endfor; ?>
@@ -29,7 +29,7 @@
 
                     <tr>
                         <td>Base Premium (<?php echo $car->getBase(); ?>%)</td>
-                        <td class="text-right"><?php echo $car->getBasePrice(); ?></td>
+                        <td class="text-right"><?php echo number_format($car->getBasePrice(), 2); ?></td>
                         <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
                             <td class="text-right"><?php echo $instalment['base']; ?></td>
                         <?php endfor; ?>
@@ -37,7 +37,7 @@
 
                     <tr>
                         <td>Commission (<?php echo $car->getCommission(); ?>%)</td>
-                        <td class="text-right"><?php echo $car->getCommissionPrice(); ?></td>
+                        <td class="text-right"><?php echo number_format($car->getCommissionPrice(), 2); ?></td>
                         <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
                             <td class="text-right"><?php echo $instalment['commission']; ?></td>
                         <?php endfor; ?>
@@ -45,7 +45,7 @@
 
                     <tr>
                         <td>Tax (<?php echo $car->getTax(); ?>%)</td>
-                        <td class="text-right"><?php echo $car->getTaxPrice(); ?></td>
+                        <td class="text-right"><?php echo number_format($car->getTaxPrice(), 2); ?></td>
                         <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
                             <td class="text-right"><?php echo $instalment['tax']; ?></td>
                         <?php endfor; ?>
@@ -53,7 +53,7 @@
 
                     <tr class="active">
                         <td class="active"><b>Total Cost</b></td>
-                        <td class="text-right"><b><?php echo $car->getTotalPrice(); ?></b></td>
+                        <td class="text-right"><b><?php echo number_format($car->getTotalPrice(), 2); ?></b></td>
                         <?php for ($i = 1; $i <= $car->getInstalement(); $i++) : ?>
                             <td class="text-right"><?php echo $instalment['total']; ?></td>
                         <?php endfor; ?>

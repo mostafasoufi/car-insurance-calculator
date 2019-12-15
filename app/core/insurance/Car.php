@@ -19,7 +19,7 @@ class Car extends Insurance implements InsuranceInterface
      * @param $value
      * @param $tax
      * @param $instalment
-     * @param string $time
+     * @param bool $time
      */
     public function __construct($value, $tax, $instalment, $time = false)
     {
@@ -28,7 +28,8 @@ class Car extends Insurance implements InsuranceInterface
         $this->value = $value;
         $this->tax = $tax;
         $this->instalment = $instalment;
-        $this->userTime = $time ? $time : time();
+        $this->userTime = $time;
+
         $this->basePercent = 11;
         $this->commissionPercent = 17;
 
@@ -54,7 +55,10 @@ class Car extends Insurance implements InsuranceInterface
     private function modifyBasePercent()
     {
         $date = new DateTime();
-        $date->setTimestamp($this->userTime);
+
+        if ($this->userTime) {
+            $date->setTimestamp($this->userTime);
+        }
 
         if ($date->format('l') == 'Friday' and $date->format('H-m') == '15-20') {
             $this->basePercent = 13;
@@ -88,31 +92,31 @@ class Car extends Insurance implements InsuranceInterface
 
     public function getBasePrice()
     {
-        return $this->calculatePercent($this->value, $this->basePercent);
+        return round($this->calculatePercent($this->value, $this->basePercent));
     }
 
     public function getCommissionPrice()
     {
-        return $this->calculatePercent($this->getBasePrice(), $this->commissionPercent);
+        return round($this->calculatePercent($this->getBasePrice(), $this->commissionPercent));
     }
 
     public function getTaxPrice()
     {
-        return $this->calculatePercent($this->getBasePrice(), $this->tax);
+        return round($this->calculatePercent($this->getBasePrice(), $this->tax));
     }
 
     public function getTotalPrice()
     {
-        return $this->getBasePrice() + $this->getCommissionPrice() + $this->getTaxPrice();
+        return round($this->getBasePrice() + $this->getCommissionPrice() + $this->getTaxPrice());
     }
 
     public function getInstalmentsPrice()
     {
         return [
-            'base' => round($this->getBasePrice() / $this->instalment),
-            'commission' => round($this->getCommissionPrice() / $this->instalment),
-            'tax' => round($this->getTaxPrice() / $this->instalment),
-            'total' => round($this->getTotalPrice() / $this->instalment),
+            'base' => number_format($this->getBasePrice() / $this->instalment, 2),
+            'commission' => number_format($this->getCommissionPrice() / $this->instalment, 2),
+            'tax' => number_format($this->getTaxPrice() / $this->instalment,2),
+            'total' => number_format($this->getTotalPrice() / $this->instalment, 2),
         ];
     }
 

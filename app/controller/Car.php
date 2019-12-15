@@ -23,7 +23,7 @@ class Car
         if ($car->hasError()) {
             View::render('error.php', ['title' => $title, 'error' => $car->getError()]);
         }
-        
+
         View::render('calculate.php', [
             'title' => $title,
             'car' => $car,
